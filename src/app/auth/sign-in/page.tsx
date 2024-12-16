@@ -1,16 +1,18 @@
 'use client'
-import { signinAction } from "@/api/accounts/signin-action";
+import { signInAction } from "@/api/accounts/signin-action";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label";
 import Form from 'next/form';
 import { useActionState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-export default function Signin() {
+export default function SignIn() {
   const { toast } = useToast();
 
-  const [message, formAction] = useActionState(signinAction, { success: true, text: 'Send to register' } );
+  const [message, formAction] = useActionState(signInAction, null);
 
   useEffect(() => {
     if (message) {
@@ -25,11 +27,17 @@ export default function Signin() {
 
   return (
     <div className="p-8">
-      <div className="w-[350px] flex flex-col justify-center gap-6">
         
+        <Button variant="ghost" className="absolute right-8 top-8">
+          <Link href="sign-up">
+            New restaurant
+          </Link>
+        </Button>
+        
+      <div className="flex w-[350px] flex-col justify-center gap-6">
         <div className="flex flex-col gap-2 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">
-            Access panel
+            FullBelly
           </h1>
           <p className="text-sm text-muted-foreground">
             Track your sales through the partner dashboard!
@@ -43,7 +51,7 @@ export default function Signin() {
           </div>
 
           <SubmitButton
-            className="w-full" type="submit" pendingText="Accessing..." text="Acess Panel" />
+            className="w-full" type="submit" pendingText="Entering..." text="Access Panel" />
         </Form>
 
       </div>
