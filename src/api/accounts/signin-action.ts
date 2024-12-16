@@ -13,7 +13,7 @@ function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export const signinAction = async (prevState: IPrevState, formData: FormData): Promise<IValidateResponse> => {
+export const signInAction = async (prevState: IPrevState | null, formData: FormData): Promise<IValidateResponse> => {
   await delay(4000);
 
     const email = formData.get('email');
