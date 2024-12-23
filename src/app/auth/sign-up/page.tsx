@@ -51,7 +51,7 @@ export default function SignUp() {
         <Form action={formAction} className="space-y-4">
 
           <div className="space-y-2">
-            <Label htmlFor="restaurantName">Name of Establishment</Label>
+            <Label htmlFor="restaurantName">Restaurant Name</Label>
             <Input id="restaurantName" type="text" name="restaurantName"/>
             </div>
 
