@@ -25,6 +25,7 @@ const buttonVariants = cva(
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
+        xs: "h-8 rounded-md px-2.5 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
       },
@@ -40,8 +41,8 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
-  pendingText?: string
-  text?: string
+  pendingText?: string | React.ReactElement
+  text?: string | React.ReactElement
 }
 
 const SubmitButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
