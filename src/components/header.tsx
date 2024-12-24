@@ -27,12 +27,6 @@ export function Header(){
           <ChartSpline className="h-4 w-4"/>
           Dashboard
         </NavLink>
-
-        <NavLink href="/auth/sign-out">
-          <User className="h-4 w-4"/>
-          Sign Out
-        </NavLink>
-
       </nav>
 
       <div className="ml-auto flex items-center gap-2">
