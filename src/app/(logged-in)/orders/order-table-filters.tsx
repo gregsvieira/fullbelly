@@ -69,7 +69,7 @@ export function OrderTableFilters(){
         variant="outline"
         size="xs"
         name="action"
-        value="remove"
+        value="export"
         pendingText={(
           <><FileDown className="h-4 w-4 mr-2 animate-ping text-green-500" />
             <span>
