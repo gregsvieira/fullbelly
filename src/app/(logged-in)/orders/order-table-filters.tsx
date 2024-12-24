@@ -3,7 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SubmitButton } from "@/components/ui/submit-button";
-import { LoaderCircle, Search, X, Trash2 } from "lucide-react";
+import { LoaderCircle, Search, X, Trash2, FileDown } from "lucide-react";
 import Form from "next/form";
 import { useActionState } from "react";
 import { filterAction } from "./actions/filter-actions";
@@ -12,10 +12,12 @@ export function OrderTableFilters(){
   const [_, formAction] = useActionState(filterAction, null);
 
   return (
-    <Form action={formAction} className="flex items-center gap-2">
+      <>
       <span className="text-sm font-semibold">Filters</span>
+      <Form action={formAction} className="flex flex-wrap items-center gap-2">
       <Input name="orderId" placeholder="Order Id" className="h-8 w-auto" />
-      <Input  name="clientName" placeholder="Client Name" className="h-8 w-[320px]" />
+      <Input name="realizedAt" placeholder="Realized At" className="h-8 w-[320px]" />
+      <Input name="clientName" placeholder="Client Name" className="h-8 w-[320px]" />
       <Select name="status" defaultValue="all">
         <SelectTrigger className="h-8 w-[180px]">
           <SelectValue />
@@ -41,12 +43,11 @@ export function OrderTableFilters(){
             <span>
               Filtering
             </span></>
-          )} 
+        )}
         text={(
           <><Search className="h-4 w-4 mr-2" /><span>Filter results</span></>
-          )}
-      />
-      
+        )} />
+
       <SubmitButton
         type="button"
         variant="outline"
@@ -58,12 +59,28 @@ export function OrderTableFilters(){
             <span>
               Removing
             </span></>
-          )} 
+        )}
         text={(
           <><Trash2 className="h-4 w-4 mr-2" /><span>Remove filters</span></>
-          )}
-      />
-      
-      </Form>
+        )} />
+
+      <SubmitButton
+        type="button"
+        variant="outline"
+        size="xs"
+        name="action"
+        value="remove"
+        pendingText={(
+          <><FileDown className="h-4 w-4 mr-2 animate-ping text-green-500" />
+            <span>
+              Exporting
+            </span></>
+        )}
+        text={(
+          <><FileDown className="h-4 w-4 mr-2" /><span>Export</span></>
+        )} />
+
+    </Form>
+    </>
   )
 }
