@@ -1,6 +1,6 @@
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { OrderTableRow } from "./order-table-row";
-import { OrderTableFilters } from "./order-table-filters";
+import { OrderTableRow } from "./components/order-table-row";
+import { OrderTableFilters } from "./components/order-table-filters";
 import { Pagination } from "@/components/pagination";
 
 export default function Dashboard() {

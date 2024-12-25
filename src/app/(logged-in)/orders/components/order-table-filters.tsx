@@ -6,7 +6,7 @@ import { SubmitButton } from "@/components/ui/submit-button";
 import { LoaderCircle, Search, X, Trash2, FileDown } from "lucide-react";
 import Form from "next/form";
 import { useActionState } from "react";
-import { filterAction } from "./actions/filter-actions";
+import { filterAction } from "../actions/filter-actions";
 
 export function OrderTableFilters(){
   const [_, formAction] = useActionState(filterAction, null);
@@ -39,7 +39,7 @@ export function OrderTableFilters(){
         name="action"
         value="filter"
         pendingText={(
-          <><LoaderCircle className="h-4 w-4 mr-2 animate-spin text-blue-500" />
+          <><LoaderCircle className="h-4 w-4 mr-2 animate-spin text-blue-500 dark:text-blue-400" />
             <span>
               Filtering
             </span></>
@@ -55,7 +55,7 @@ export function OrderTableFilters(){
         name="action"
         value="remove"
         pendingText={(
-          <><Trash2 className="h-4 w-4 mr-2 animate-bounce text-red-500" />
+          <><Trash2 className="h-4 w-4 mr-2 animate-bounce text-red-500 dark:text-red-400" />
             <span>
               Removing
             </span></>
@@ -71,7 +71,7 @@ export function OrderTableFilters(){
         name="action"
         value="export"
         pendingText={(
-          <><FileDown className="h-4 w-4 mr-2 animate-ping text-green-500" />
+          <><FileDown className="h-4 w-4 mr-2 animate-ping text-green-500 dark:text-green-400" />
             <span>
               Exporting
             </span></>
